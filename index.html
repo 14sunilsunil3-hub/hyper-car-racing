@@ -15,7 +15,7 @@
         }
         .hidden { display: none !important; }
 
-        /* 1. CINEMATIC HYPERCAR SPLASH SCREEN (LANDSCAPE FOCUS) */
+        /* 1. CINEMATIC HYPERCAR SPLASH SCREEN (FORCED LANDSCAPE LOOK) */
         #splash-screen {
             text-align: center; cursor: pointer; position: relative; overflow: hidden;
             background: linear-gradient(180deg, rgba(5, 5, 15, 0.2) 0%, rgba(5, 5, 15, 0.7) 100%), 
@@ -26,9 +26,9 @@
         /* 3D Ground Perspective Text (Left H bada, Right G chhota) */
         .perspective-text-wrapper {
             position: absolute;
-            bottom: 12%;
-            left: 5%;
-            transform: rotateY(22deg) rotateX(12deg) rotateZ(-3deg) scaleX(1.1);
+            bottom: 15%;
+            left: 8%;
+            transform: rotateY(18deg) rotateX(10deg) rotateZ(-2deg) scaleX(1.05);
             transform-origin: left center;
             text-align: left;
             z-index: 2;
@@ -36,7 +36,7 @@
         }
 
         .main-title {
-            font-size: 62px; 
+            font-size: 52px; 
             font-weight: 900; 
             font-style: italic; 
             letter-spacing: 4px;
@@ -54,11 +54,11 @@
         }
 
         .company-brand { 
-            margin-top: 12px; 
-            font-size: 16px; 
+            margin-top: 10px; 
+            font-size: 15px; 
             font-weight: 800; 
             color: #e0aaff; 
-            letter-spacing: 6px; 
+            letter-spacing: 5px; 
             text-shadow: 0 0 12px rgba(176, 38, 255, 0.9); 
             text-transform: uppercase;
         }
@@ -104,7 +104,7 @@
         }
     </style>
 </head>
-<body>
+<body onclick="forceLandscape()">
 
     <div id="toast">⚠️ Unstable Connection! Entering Offline Garage.</div>
 
@@ -153,6 +153,16 @@
         function showScreen(id) {
             document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
+        }
+
+        // Force Landscape and Fullscreen on tap/load
+        function forceLandscape() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen().catch(err => {});
+            }
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(err => {});
+            }
         }
 
         // Automatic 5-second splash screen redirect
@@ -212,14 +222,12 @@
 
             scene.add(new THREE.AmbientLight(0xffffff, 0.8));
 
-            // Hyper Car Model Box Placeholder
             const carGeo = new THREE.BoxGeometry(1.4, 0.6, 2.8);
-            const carMat = new THREE.MeshStandardMaterial({ color: #b026ff, roughness: 0.3, metalness: 0.8 });
+            const carMat = new THREE.MeshStandardMaterial({ color: 0xb026ff, roughness: 0.3, metalness: 0.8 });
             const car = new THREE.Mesh(carGeo, carMat);
             car.position.y = 0.3;
             scene.add(car);
 
-            // Platform Floor
             const floorGeo = new THREE.CylinderGeometry(3, 3, 0.2, 32);
             const floorMat = new THREE.MeshStandardMaterial({ color: 0x151525 });
             const floor = new THREE.Mesh(floorGeo, floorMat);
