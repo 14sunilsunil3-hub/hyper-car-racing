@@ -8,5 +8,10 @@
   "theme_color": "#b026ff",
   "orientation": "landscape",
   "dir": "ltr",
-  "scope": "/"
+  "scope": "/",
+  "lang": "en",
+  "categories": [
+    "cars",
+    "games"
+  ]
 }
