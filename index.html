@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Hyper Car Racing - Aura Gaming</title>
+    <!-- Web App Manifest Link for APK Generation -->
+    <link rel="manifest" href="manifest.json">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body, html { width: 100%; height: 100%; overflow: hidden; background: #030308; color: #fff; }
@@ -155,7 +157,6 @@
             document.getElementById(id).classList.remove('hidden');
         }
 
-        // Force Landscape and Fullscreen on tap/load
         function forceLandscape() {
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen().catch(err => {});
