@@ -1,11 +1,12 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
   "name": "Hyper Car Racing",
-  "orientation": "landscape",
-  "scope": "/",
   "short_name": "Hyper Car Racing",
+  "description": "An immersive 3D hypercar racing game with cyberpunk neon aesthetics and cinematic gameplay.",
   "start_url": "/",
-  "theme_color": "#ffffff"
+  "display": "standalone",
+  "background_color": "#030308",
+  "theme_color": "#b026ff",
+  "orientation": "landscape",
+  "dir": "ltr",
+  "scope": "/"
 }
