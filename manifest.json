@@ -1,0 +1,11 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Hyper Car Racing",
+  "orientation": "landscape",
+  "scope": "/",
+  "short_name": "Hyper Car Racing",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
