@@ -15,71 +15,63 @@
         }
         .hidden { display: none !important; }
 
-        /* 1. CINEMATIC HYPERCAR SPLASH SCREEN */
+        /* 1. CINEMATIC HYPERCAR SPLASH SCREEN (LANDSCAPE FOCUS) */
         #splash-screen {
             text-align: center; cursor: pointer; position: relative; overflow: hidden;
-            background: linear-gradient(180deg, rgba(5, 5, 15, 0.3) 0%, rgba(5, 5, 15, 0.85) 100%), 
+            background: linear-gradient(180deg, rgba(5, 5, 15, 0.2) 0%, rgba(5, 5, 15, 0.7) 100%), 
                         url('assets/flash.png') no-repeat center center/cover;
+            perspective: 1000px;
         }
 
-        .splash-content {
+        /* 3D Ground Perspective Text (Left H bada, Right G chhota) */
+        .perspective-text-wrapper {
+            position: absolute;
+            bottom: 12%;
+            left: 5%;
+            transform: rotateY(22deg) rotateX(12deg) rotateZ(-3deg) scaleX(1.1);
+            transform-origin: left center;
+            text-align: left;
             z-index: 2;
-            background: rgba(0, 0, 0, 0.45);
-            padding: 35px 55px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 51, 85, 0.35);
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+            pointer-events: none;
         }
 
-        /* Bada, Italic & Glowing Game Title */
         .main-title {
-            font-size: 58px; 
+            font-size: 62px; 
             font-weight: 900; 
             font-style: italic; 
-            letter-spacing: 5px;
-            color: #fff; 
+            letter-spacing: 4px;
+            color: #ffffff; 
             text-transform: uppercase;
-            text-shadow: 0 0 12px #ff3355, 0 0 25px #ff3355, 0 0 50px #ff3355, 0 0 80px #ff3355;
-            animation: speedGlow 1.8s ease-in-out infinite alternate;
-            line-height: 1.1;
-        }
-        @keyframes speedGlow {
-            0% { text-shadow: 0 0 10px #ff3355, 0 0 20px #ff3355; transform: scale(1) skewX(-5deg); }
-            100% { text-shadow: 0 0 25px #ff6688, 0 0 50px #ff3355, 0 0 90px #ff3355; transform: scale(1.03) skewX(-5deg); }
+            line-height: 0.95;
+            /* Purple Neon Glow */
+            text-shadow: 0 0 10px #b026ff, 0 0 20px #b026ff, 0 0 40px #8a2be2, 0 0 80px #7b00ff;
+            animation: purpleGlow 2s ease-in-out infinite alternate;
         }
 
-        /* Chhota Company Name */
+        @keyframes purpleGlow {
+            0% { text-shadow: 0 0 10px #b026ff, 0 0 20px #b026ff, 0 0 40px #8a2be2; transform: scale(1); }
+            100% { text-shadow: 0 0 20px #d896ff, 0 0 45px #b026ff, 0 0 90px #7b00ff; transform: scale(1.02); }
+        }
+
         .company-brand { 
-            margin-top: 15px; 
-            font-size: 13px; 
-            font-weight: 700; 
-            color: #00f2fe; 
-            letter-spacing: 5px; 
-            text-shadow: 0 0 10px rgba(0, 242, 254, 0.7); 
+            margin-top: 12px; 
+            font-size: 16px; 
+            font-weight: 800; 
+            color: #e0aaff; 
+            letter-spacing: 6px; 
+            text-shadow: 0 0 12px rgba(176, 38, 255, 0.9); 
             text-transform: uppercase;
-            opacity: 0.9;
         }
-
-        .tap-hint { 
-            margin-top: 30px; font-size: 13px; color: #fff; letter-spacing: 2px;
-            background: linear-gradient(90deg, #ff2a55, #ff4b2b); padding: 10px 25px; border-radius: 30px;
-            box-shadow: 0 0 20px rgba(255, 51, 85, 0.6);
-            animation: bounce 1.5s infinite; 
-            font-weight: bold;
-            display: inline-block;
-        }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); opacity: 0.85; } 50% { transform: translateY(-4px); opacity: 1; } }
 
         /* UI Cards */
         .card {
             background: rgba(15, 15, 28, 0.92); padding: 25px 35px; border-radius: 16px;
             width: 90%; max-width: 450px; text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 51, 85, 0.2);
-            border: 1px solid rgba(255, 51, 85, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(176, 38, 255, 0.2);
+            border: 1px solid rgba(176, 38, 255, 0.3);
             backdrop-filter: blur(10px);
         }
-        .card h2 { margin-bottom: 18px; color: #ff3355; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
+        .card h2 { margin-bottom: 18px; color: #b026ff; font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }
         
         .btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 10px; }
         .card input {
@@ -90,7 +82,7 @@
             flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: bold; 
             font-size: 15px; cursor: pointer; transition: 0.2s; text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn-red { background: linear-gradient(to right, #ff2a55, #ff4b2b); color: white; box-shadow: 0 4px 15px rgba(255, 51, 85, 0.4); }
+        .btn-red { background: linear-gradient(to right, #b026ff, #7b00ff); color: white; box-shadow: 0 4px 15px rgba(176, 38, 255, 0.4); }
         .btn-blue { background: linear-gradient(to right, #00c6ff, #0072ff); color: white; box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4); }
         .btn-gray { background: #1a1a2e; color: #ccc; border: 1px solid #333; }
         .btn-full { width: 100%; margin-top: 10px; }
@@ -108,7 +100,7 @@
         #home-ui {
             position: absolute; top: 20px; left: 20px; z-index: 5;
             background: rgba(0,0,0,0.8); padding: 8px 16px; border-radius: 8px;
-            font-size: 14px; border-left: 4px solid #ff3355; border: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px; border-left: 4px solid #b026ff; border: 1px solid rgba(255,255,255,0.05);
         }
     </style>
 </head>
@@ -117,17 +109,15 @@
     <div id="toast">⚠️ Unstable Connection! Entering Offline Garage.</div>
 
     <!-- 1. CINEMATIC HYPERCAR SPLASH SCREEN -->
-    <div class="screen" id="splash-screen" onclick="showScreen('play-style-screen')">
-        <div class="splash-content">
-            <div class="main-title">HYPER CAR RACING</div>
+    <div class="screen" id="splash-screen">
+        <div class="perspective-text-wrapper">
+            <div class="main-title">HYPER CAR<br>RACING</div>
             <div class="company-brand">BY AURA GAMING</div>
-            <br>
-            <div class="tap-hint">⚡ TAP TO START ⚡</div>
         </div>
     </div>
 
     <!-- 2. PLAY STYLE PAGE -->
-    <div class="screen hidden" id="play-style-screen" style="background: radial-gradient(circle at center, #15103a 0%, #05050f 100%);">
+    <div class="screen hidden" id="play-style-screen" style="background: radial-gradient(circle at center, #1a0826 0%, #05050f 100%);">
         <div class="card">
             <h2>Select Racing Mode</h2>
             <div class="btn-group">
@@ -138,7 +128,7 @@
     </div>
 
     <!-- 3. REGISTER PAGE -->
-    <div class="screen hidden" id="register-screen" style="background: radial-gradient(circle at center, #15103a 0%, #05050f 100%);">
+    <div class="screen hidden" id="register-screen" style="background: radial-gradient(circle at center, #1a0826 0%, #05050f 100%);">
         <div class="card" style="max-width: 400px;">
             <h2>Multiplayer Auth</h2>
             <input type="text" id="reg-username" placeholder="Racer Tag">
@@ -164,6 +154,16 @@
             document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
             document.getElementById(id).classList.remove('hidden');
         }
+
+        // Automatic 5-second splash screen redirect
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if (!splash.classList.contains('hidden')) {
+                    showScreen('play-style-screen');
+                }
+            }, 5000);
+        });
 
         function selectMode(mode) {
             if (mode === 'single') {
@@ -214,7 +214,7 @@
 
             // Hyper Car Model Box Placeholder
             const carGeo = new THREE.BoxGeometry(1.4, 0.6, 2.8);
-            const carMat = new THREE.MeshStandardMaterial({ color: 0xff3355, roughness: 0.3, metalness: 0.8 });
+            const carMat = new THREE.MeshStandardMaterial({ color: #b026ff, roughness: 0.3, metalness: 0.8 });
             const car = new THREE.Mesh(carGeo, carMat);
             car.position.y = 0.3;
             scene.add(car);
