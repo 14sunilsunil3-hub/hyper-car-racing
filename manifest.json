@@ -9,9 +9,12 @@
   "orientation": "landscape",
   "dir": "ltr",
   "scope": "/",
-  "lang": "en",
-  "categories": [
-    "cars",
-    "games"
+  "icons": [
+    {
+      "src": "assets/flash.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
